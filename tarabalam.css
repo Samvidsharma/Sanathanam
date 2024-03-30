@@ -56,3 +56,15 @@
   .color-red{
     color: #ff0000;
   }
+
+  @media screen and (min-width: 768px) {
+    .dropdown {
+      width: 50%; /* Adjust width for larger screens */
+    }
+  }
+  
+  @media screen and (min-width: 992px) {
+    .dropdown {
+      width: 33.33%; /* Adjust width for even larger screens */
+    }
+  }
