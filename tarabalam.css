@@ -47,18 +47,19 @@
   .dropdown:hover .dropdown-content {
     display: block;
   }
-  .d-flex{
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-  }
+ 
   .m-3{
       margin: 3px;
   }
   .color-red{
     color: #ff0000;
   }
-
+  .color-green{
+    color:#00ff00;
+  }
+  .color-orange{
+    color: #fc7a01;
+  }
   @media screen and (min-width: 320px) {
     .d-flex{
       display: block;
@@ -69,6 +70,12 @@
   .dropdown {
     width: 50%; /* Adjust width for larger screens */
     }
+    .d-flex{
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      /*justify-content: space-between;*/
+  }
   }
 
 @media screen and (min-width: 992px) {
