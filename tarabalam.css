@@ -49,6 +49,8 @@
   }
   .d-flex{
       display: flex;
+      flex-wrap: wrap;
+      align-items: center;
   }
   .m-3{
       margin: 3px;
@@ -57,14 +59,20 @@
     color: #ff0000;
   }
 
+  @media screen and (min-width: 320px) {
+    .d-flex{
+      display: block;
+    }
+    }
+   
   @media screen and (min-width: 768px) {
-    .dropdown {
-      width: 50%; /* Adjust width for larger screens */
+  .dropdown {
+    width: 50%; /* Adjust width for larger screens */
     }
   }
-  
-  @media screen and (min-width: 992px) {
-    .dropdown {
-      width: 33.33%; /* Adjust width for even larger screens */
-    }
+
+@media screen and (min-width: 992px) {
+  .dropdown {
+    width: 33.33%; /* Adjust width for even larger screens */
   }
+}
