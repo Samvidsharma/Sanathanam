@@ -62,10 +62,10 @@ for (let i = 0; i < selectElements.length; i++) {
     let currentList = selectElements[i];
     console.log(currentList);
     for (let j = 0; j < 27; j++) {
-        let k = Math.floor(j/9);
+        let k = Math.floor(j / 9);
         var newOption = document.createElement("option");
-        var element = nakshatraObjectForTarabalam[j%9];
-        console.log(j+' '+element.value+' '+k)
+        var element = nakshatraObjectForTarabalam[j % 9];
+        console.log(j + ' ' + element.value + ' ' + k)
         newOption.value = element.id;
         newOption.text = element.value[k];
         currentList.appendChild(newOption)
@@ -98,43 +98,98 @@ function ShowMatches() {
     }
 
     const result = matches1.filter(value => matches2.includes(value)).filter(Boolean);
-    
+
     const orangeValues = [];
     const greenValues = [];
     const redValues = [];
 
-nakshatraObjectForTarabalam.forEach(({ value }) => {
-    value.forEach(item => {
-        if (cantUseNakshatras.includes(item) && result.includes(item)) {
-            orangeValues.push(item);
-        }
-        else if (!cantUseNakshatras.includes(item) && result.includes(item)) {
-            greenValues.push(item);
-        } else {
-            redValues.push(item);
-        }
+    nakshatraObjectForTarabalam.forEach(({ value }) => {
+        value.forEach(item => {
+            if (cantUseNakshatras.includes(item)) {
+                orangeValues.push(item);
+            }
+            else if (result.includes(item)) {
+                greenValues.push(item);
+            } else {
+                redValues.push(item);
+            }
+        });
     });
-});
 
-// Function to generate HTML for each color
-const generateHTMLForColor = (values, className) => {
-    return values.map(item => `<div class="${className}">${item}</div>`).join('');
-};
+    // Function to generate HTML for each color
+    const generateHTMLForColorWithRows = (values, className) => {
+        // Splitting the values into chunks of 3
+        const chunks = [];
+        for (let i = 0; i < values.length; i += 3) {
+            chunks.push(values.slice(i, i + 3));
+        }
 
-// Generate HTML for each color
-const orangeHTML = generateHTMLForColor(orangeValues, 'color-orange');
-const greenHTML = generateHTMLForColor(greenValues, 'color-green');
-const redHTML = generateHTMLForColor(redValues, 'color-red');
+        // Generating HTML for each chunk
+        const htmlChunks = chunks.map(chunk => {
+            return `<div class="d-flex">${chunk.map(item => `<div class="${className}">${item},</div>`).join('')}</div>`;
+        });
 
-// Combine the HTML for all colors into one string with three columns
-const innerHTMLString = `<div class = d-flex>
-    <div class="column">${orangeHTML}</div>
-    <div class="column">${greenHTML}</div>
-    <div class="column">${redHTML}</div>
+        return htmlChunks.join('');
+    };
+    // Generate HTML for each color
+    const greenHTML = generateHTMLForColorWithRows(greenValues, 'color-green');
+    const redHTML = generateHTMLForColorWithRows(redValues, 'color-red');
+    const orangeHTML = generateHTMLForColorWithRows(orangeValues, 'color-orange');
+
+    // Combine the HTML for all colors into one string with three columns
+    const innerHTMLStringForMatched = `
+    <div class="column bg-match">
+    <div class="d-sm-flex bg-green">
+        <h4 class="text-center ">పనికివచ్చే నక్షత్రాలు</h4>
+        <span class="only-in-mobile toggle-span" onclick="showOrHide('match')">&#11165</span>
+    </div>
+    <div id="match" style="display:block">
+        ${greenHTML}
+    </div>
+    </div>
+`;
+    const innerHTMLStringForNotMatched = `
+    <div class="column bg-unmatch ">
+    <div class="d-sm-flex bg-red">
+        <h4 class="text-center ">పనికిరాని నక్షత్రాలు</h4>
+        <span class="only-in-mobile toggle-span" onclick="showOrHide('unmatch')">&#11165</span>
+    </div>
+    <div id="unmatch" style="display:block">
+    ${redHTML}
+</div>
+    </div>
+`;
+    const innerHTMLStringForMatchedButCantUse = `
+    <div class="column bg-unused">
+    <div class="d-sm-flex bg-grey">
+        <h4 class="text-center ">పనికివచ్చే నక్షత్రాలు కాని ముహూర్తాలు పెట్టకూడదు</h4>
+        <span class="only-in-mobile toggle-span" onclick="showOrHide('unused')">&#11165</span>
+    </div>
+    <div id="unused" style="display:block">
+    ${orangeHTML}
+    </div>
     </div>
 `;
 
-document.getElementById("result").innerHTML = innerHTMLString;
+    document.getElementById("matches").innerHTML = innerHTMLStringForMatched;
+    document.getElementById("non-matches").innerHTML = innerHTMLStringForNotMatched;
+    document.getElementById("matches-but-can't-use").innerHTML = innerHTMLStringForMatchedButCantUse;
+}
 
-    document.getElementById("result").innerHTML = innerHTMLString;
+function showOrHide(inputVal) {
+    console.log((inputVal));
+    const content = document.getElementById(inputVal.toString());
+    console.log(content);
+    console.log(content.style.display);
+
+    console.log(content.previousElementSibling.getElementsByTagName('span')[0]);
+
+    if (content.style.display === 'none' || content.style.display === '') {
+        content.style.display = 'block';
+        content.previousElementSibling.getElementsByTagName('span')[0].innerHTML = "&#11165"
+    } else {
+        content.style.display = 'none';
+        content.previousElementSibling.getElementsByTagName('span')[0].innerHTML = "&#11167"
+    }
+
 }
