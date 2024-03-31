@@ -141,7 +141,9 @@ function ShowMatches() {
     <div class="column bg-match">
     <div class="d-sm-flex bg-green">
         <h4 class="text-center ">పనికివచ్చే నక్షత్రాలు</h4>
-        <span class="only-in-mobile toggle-span" onclick="showOrHide('match')">&#11165</span>
+        <span class="only-in-mobile toggle-span" onclick="showOrHide('match')">
+        <span class="fas fa-arrow-up"></span>
+        </span>
     </div>
     <div id="match" style="display:block">
         ${greenHTML}
@@ -152,9 +154,11 @@ function ShowMatches() {
     <div class="column bg-unmatch ">
     <div class="d-sm-flex bg-red">
         <h4 class="text-center ">పనికిరాని నక్షత్రాలు</h4>
-        <span class="only-in-mobile toggle-span" onclick="showOrHide('unmatch')">&#11165</span>
+        <span class="only-in-mobile toggle-span" onclick="showOrHide('unmatch')">
+        <span class="fas fa-arrow-down"></span>
+        </span>
     </div>
-    <div id="unmatch" style="display:block">
+    <div id="unmatch" style="display:none">
     ${redHTML}
 </div>
     </div>
@@ -163,9 +167,11 @@ function ShowMatches() {
     <div class="column bg-unused">
     <div class="d-sm-flex bg-grey">
         <h4 class="text-center ">పనికివచ్చే నక్షత్రాలు కాని ముహూర్తాలు పెట్టకూడదు</h4>
-        <span class="only-in-mobile toggle-span" onclick="showOrHide('unused')">&#11165</span>
+        <span class="only-in-mobile toggle-span" onclick="showOrHide('unused')">
+        <span class="fas fa-arrow-down"></span>
+        </span>
     </div>
-    <div id="unused" style="display:block">
+    <div id="unused" style="display:none">
     ${orangeHTML}
     </div>
     </div>
@@ -186,10 +192,10 @@ function showOrHide(inputVal) {
 
     if (content.style.display === 'none' || content.style.display === '') {
         content.style.display = 'block';
-        content.previousElementSibling.getElementsByTagName('span')[0].innerHTML = "&#11165"
+        content.previousElementSibling.getElementsByTagName('span')[0].innerHTML = `<span class="fas fa-arrow-up"></span>`
     } else {
         content.style.display = 'none';
-        content.previousElementSibling.getElementsByTagName('span')[0].innerHTML = "&#11167"
+        content.previousElementSibling.getElementsByTagName('span')[0].innerHTML = `<span class="fas fa-arrow-down"></span>`
     }
 
 }
