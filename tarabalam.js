@@ -105,12 +105,17 @@ function ShowMatches() {
 
     nakshatraObjectForTarabalam.forEach(({ value }) => {
         value.forEach(item => {
-            if (cantUseNakshatras.includes(item)) {
-                orangeValues.push(item);
-            }
-            else if (result.includes(item)) {
-                greenValues.push(item);
-            } else {
+         
+            if (result.includes(item)) {
+                if (cantUseNakshatras.includes(item)) 
+                {
+                    orangeValues.push(item);
+                }
+                else{
+                    greenValues.push(item);
+                }
+            } else 
+            {
                 redValues.push(item);
             }
         });
