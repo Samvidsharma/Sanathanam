@@ -50,7 +50,7 @@ const nakshatraObjectForTarabalam =
 //     {id:25,value:"పూర్వాభాద్రా"}
 // ]
 const cantUseNakshatras = [
-    "భరణి", "కృత్తిక", "ఆరుద్ర", "ఆశ్లేష", "పుబ్బ", "జ్యేష్ఠ", "పుర్వాషాఢ",
+    "భరణి", "కృత్తిక", "ఆరుద్ర", "ఆశ్లేష", "పుబ్బ", "విశాఖ","జ్యేష్ఠ", "పుర్వాషాఢ",
     "పూర్వాభాద్రా"
 ]
 const myDropdown = document.getElementsByClassName("my-dropdown");
