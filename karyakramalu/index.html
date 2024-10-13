@@ -24,9 +24,22 @@
         <input type="tel" id="userPhno" placeholder="User Phone" required>
         <input type="text" id="userVillage" placeholder="User Village" required>
         <input type="text" id="eventVillage" placeholder="Event Village" required>
-        <input type="date" id="eventDate" required>
-        <input type="time" id="startTime" required>
-        <input type="time" id="endTime" required>
+        
+        <div class="date-time-container">
+            <input type="date" id="eventDate" placeholder=" " />
+            <span class="placeholder-text" id="eventDatePlaceholder">Select Date</span>
+        </div>
+        
+        <div class="date-time-container">
+            <input type="time" id="startTime" placeholder=" " />
+            <span class="placeholder-text" id="startTimePlaceholder">Start Time</span>
+        </div>
+        
+        <div class="date-time-container">
+            <input type="time" id="endTime" placeholder=" " />
+            <span class="placeholder-text" id="endTimePlaceholder">End Time</span>
+        </div>
+        
         <input type="text" id="assignedToName" placeholder="Assigned To" required>
         <input type="tel" id="assignedToMobile" placeholder="Assigned To Mobile" required>
 
