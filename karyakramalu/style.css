@@ -114,6 +114,31 @@ button:hover {
     background-color: #c82333;
 }
 
+.placeholder-text {
+    color: #999;
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 25px;
+    font-size: 16px;
+}
+
+.date-time-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+input[type="date"],
+input[type="time"] {
+    padding-left: 10px;  /* Create space for the fake placeholder */
+}
+
+.hidden {
+    display: none;
+}
+
+
 @media (max-width: 600px) {
     h1 {
         font-size: 2em;
