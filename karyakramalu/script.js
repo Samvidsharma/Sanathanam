@@ -1,45 +1,7 @@
 $(document).ready(function () {
     loadPredefinedTasks();  // Load predefined tasks on page load
     loadTasks();  // Load tasks on page load
-    
-    // Handle placeholders for date input
-    $('#eventDate').on('input', function () {
-        if ($(this).val() !== "") {
-            $('#eventDatePlaceholder').addClass('hidden');
-        } else {
-            $('#eventDatePlaceholder').removeClass('hidden');
-        }
-    });
-
-    // Handle placeholders for start time input
-    $('#startTime').on('input', function () {
-        if ($(this).val() !== "") {
-            $('#startTimePlaceholder').addClass('hidden');
-        } else {
-            $('#startTimePlaceholder').removeClass('hidden');
-        }
-    });
-
-    // Handle placeholders for end time input
-    $('#endTime').on('input', function () {
-        if ($(this).val() !== "") {
-            $('#endTimePlaceholder').addClass('hidden');
-        } else {
-            $('#endTimePlaceholder').removeClass('hidden');
-        }
-    });
-
-    // Initially hide placeholders if inputs have values (on page load)
-    if ($('#eventDate').val() !== "") {
-        $('#eventDatePlaceholder').addClass('hidden');
-    }
-    if ($('#startTime').val() !== "") {
-        $('#startTimePlaceholder').addClass('hidden');
-    }
-    if ($('#endTime').val() !== "") {
-        $('#endTimePlaceholder').addClass('hidden');
-    }
-
+    styleDateTimeFields();
 
     // Show input field for custom task if "Other" is selected
     $('#taskInput').change(function () {
@@ -80,6 +42,7 @@ $(document).ready(function () {
             addTaskToDOM(task);
             saveTask(task);
             clearInputFields();
+            styleDateTimeFields();
         } else {
             alert('Please fill out all fields!');
         }
@@ -144,7 +107,7 @@ $(document).ready(function () {
 
     // Clear input fields after adding task
     function clearInputFields() {
-        $('#taskInput').val('').change();
+        $('#taskInput select').val("Vinayaka-Pooja");
         $('#customTaskInput').val('').hide();
         $('#userName').val('');
         $('#userPhno').val('');
@@ -212,5 +175,45 @@ $(document).ready(function () {
         });
 
         return tasks;
+    }
+
+    function styleDateTimeFields(){
+        // Handle placeholders for date input
+    $('#eventDate').on('input', function () {
+        if ($(this).val() !== "") {
+            $('#eventDatePlaceholder').addClass('hidden');
+        } else {
+            $('#eventDatePlaceholder').removeClass('hidden');
+        }
+    });
+
+    // Handle placeholders for start time input
+    $('#startTime').on('input', function () {
+        if ($(this).val() !== "") {
+            $('#startTimePlaceholder').addClass('hidden');
+        } else {
+            $('#startTimePlaceholder').removeClass('hidden');
+        }
+    });
+
+    // Handle placeholders for end time input
+    $('#endTime').on('input', function () {
+        if ($(this).val() !== "") {
+            $('#endTimePlaceholder').addClass('hidden');
+        } else {
+            $('#endTimePlaceholder').removeClass('hidden');
+        }
+    });
+
+    // Initially hide placeholders if inputs have values (on page load)
+    if ($('#eventDate').val() !== "") {
+        $('#eventDatePlaceholder').addClass('hidden');
+    }
+    if ($('#startTime').val() !== "") {
+        $('#startTimePlaceholder').addClass('hidden');
+    }
+    if ($('#endTime').val() !== "") {
+        $('#endTimePlaceholder').addClass('hidden');
+    }
     }
 });
