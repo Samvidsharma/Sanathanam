@@ -1,0 +1,78 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Roboto:wght@400;500&display=swap');
+
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    font-family: 'Lora', serif;
+    font-weight: bold;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('images/hero-bg.jpg'); /* Replace with a hero background image if desired */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+}
+
+.hero p {
+    font-size: 1.25rem;
+}
+
+/* Profile Image */
+.profile-img {
+    max-width: 60%;
+    margin-top: 20px;
+}
+
+/* About Section */
+section {
+    margin-bottom: 60px;
+}
+
+section h2 {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+ul li strong {
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #222;
+    color: white;
+}
+/* Active Link */
+.navbar-nav .nav-item .nav-link.active {
+    color: #0d6efd;
+}
