@@ -76,3 +76,34 @@ footer {
 .navbar-nav .nav-item .nav-link.active {
     color: #0d6efd;
 }
+
+.carousel-item {
+    text-align: center;
+}
+
+.carousel-item img {
+    max-height: 90vh;  
+    width: auto;       
+    object-fit: contain;  
+    display: inline-block;  /* Ensure image stays inline without affecting controls */
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    z-index: 10;
+    background-color: rgba(255, 255, 255, 0.774);  /* Semi-transparent black */
+    width: 5%;  /* Adjust button width */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);  /* White arrows */
+}
+
+
+
+@media (max-width: 768px) {
+    .carousel-inner img {
+        height: auto;  /* Auto height for mobile */
+    }
+}
