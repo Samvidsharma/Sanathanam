@@ -13,6 +13,8 @@ body {
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    background: #04baff63;
+    color: #ffffff; /* White text for readability */
 }
 
 h1, h2 {
@@ -53,6 +55,7 @@ header {
 /* About Section */
 section {
     margin-bottom: 60px;
+        background:  #460c93 /* #c15b5b4a /* #495057; /* Slightly lighter gray */
 }
 
 section h2 {
@@ -70,7 +73,7 @@ ul li {
 }
 
 ul li strong {
-    color: #333;
+    color: #d2eb08 /* /* #333; #285e2c*/
 }
 
 /* Footer */
