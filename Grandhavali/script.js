@@ -24,7 +24,7 @@ function renderList(filter = "") {
   filtered.forEach(item => {
     const card = `
       <div class="col-12 col-sm-6 col-lg-4 mb-4">
-        <div class="card h-100 shadow-sm" role="button" onclick="window.open('./images/${item.image}', '_blank')">
+        <div class="card h-100 shadow-sm" role="button" onclick="window.open('images/${item.image}', '_blank')">
           <div class="card-body">
             <p class="card-text text-center fw-semibold">${item.name}</p>
           </div>
