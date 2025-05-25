@@ -1,6 +1,6 @@
 // script.js
 const slokaData = [
-  { name: "NavaGraha All Slokas With Adhi Prathyadhi devatas", image: "NavaGraha_All_Graha_Slokas_With_Adhi_Prathyadhi_devatas.PDF" },
+  { name: "NavaGraha All Slokas With Adhi Prathyadhi devatas", image: "NavaGraha_All_Graha_Slokas_With_Adhi_Prathyadhi_devatas.pdf" },
   { name: "Navagraha sloka Surya and Chandra", image: "NavaGraha_Surya_Chandra_1.PNG" },
   { name: "Navagraha sloka Kuja, Budha and Guru", image: "NavaGraha_Kuja_Budha_Guru_1.PNG" },
   { name: "Navagraha sloka Shukra, Shani and Rahu", image: "NavaGraha_Shukra_Shani_Rahu_1.PNG" },
